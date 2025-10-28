@@ -14,5 +14,5 @@ phases:
     commands:
       - echo Build completed on `date`
       - echo Uploading to S3 ....
-      - aws s3 cp $PRODUCT_NAME.zip s3://$BUCKET_NAME/$TYPE/$PRODUCT_NAME/$VERSION/$PRODUCT_NAME.zip
+      - aws s3 cp $PRODUCT_NAME.zip s3://dev-$BUCKET_NAME/$TYPE/$PRODUCT_NAME/$VERSION/$PRODUCT_NAME.zip
       - echo "Uploading to S3 completed"
