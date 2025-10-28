@@ -8,11 +8,11 @@ phases:
       - aws --version
   build:
     commands:
-      - zip -r $PRODUCT_NAME-.zip . -x "buildspec.yml" -x "version.txt"
-      - VERSION=$(cat version.txt)
+      - zip -r $PRODUCT_NAME.zip . -x "buildspec.yml" -x "version.txt"
+      - VERSION=dev.$(cat version.txt)
   post_build:
     commands:
       - echo Build completed on `date`
       - echo Uploading to S3 ....
-      - aws s3 cp $PRODUCT_NAME.zip s3://dev-$BUCKET_NAME/$TYPE/$PRODUCT_NAME/$VERSION/$PRODUCT_NAME.zip
+      - aws s3 cp $PRODUCT_NAME.zip s3://$BUCKET_NAME/$TYPE/$PRODUCT_NAME/$VERSION/$PRODUCT_NAME.zip
       - echo "Uploading to S3 completed"
