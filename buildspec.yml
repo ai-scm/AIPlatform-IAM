@@ -8,7 +8,7 @@ phases:
       - aws --version
   build:
     commands:
-      - zip -r $PRODUCT_NAME-.zip . -x "buildspec.yml" -x "version.txt"
+      - zip -r $PRODUCT_NAME.zip . -x "buildspec.yml" -x "version.txt"
       - VERSION=$(cat version.txt)
   post_build:
     commands:
